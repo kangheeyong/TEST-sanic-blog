@@ -3,7 +3,7 @@ from datetime import datetime
 
 from sanic_jinja2 import SanicJinja2
 
-from myblog import app
+from . import app
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 

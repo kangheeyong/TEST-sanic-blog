@@ -2,5 +2,5 @@ sanic
 sanic_jinja2
 pytest
 sqlalchemy
-
+werkzeug
 
