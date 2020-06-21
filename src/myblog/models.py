@@ -4,7 +4,7 @@ from sqlalchemy import Column, Integer, String, DateTime, Text, ForeignKey
 from sqlalchemy.orm import relationship
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from database import Base, db_session, init_db
+from .database import Base, init_db
 
 
 class Post(Base):
@@ -48,7 +48,4 @@ class User(Base):
         return check_password_hash(self.password, password)
 
 init_db()
-
-if __name__ == '__main__':
-    breakpoint()
 
