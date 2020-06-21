@@ -1,10 +1,11 @@
+import os
 from datetime import datetime
 
-from sanic import Sanic
 from sanic_jinja2 import SanicJinja2
 
+from myblog import app
 
-app = Sanic(__name__)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 jinja = SanicJinja2(app)
 render_template = jinja.render
@@ -28,7 +29,7 @@ posts = [
     },
 ]
 
-app.static('css/', './static/css/', name='css')
+app.static('css/', os.path.join(BASE_DIR, 'static', 'css'), name='css')
 
 
 @app.route('/')
@@ -40,9 +41,5 @@ async def index(request):
 @app.route('/about')
 async def about(request):
     return render_template('about.html', request, title='about')
-
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
 
 
