@@ -3,4 +3,6 @@ sanic_jinja2
 pytest
 sqlalchemy
 werkzeug
+sanic_wtf
+sanic_session
 
